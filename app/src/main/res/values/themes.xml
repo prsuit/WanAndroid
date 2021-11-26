@@ -19,8 +19,9 @@
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
     </style>
 
-    <style name="SplashTheme">
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/bg_splash</item>
+    <style name="SplashTheme" parents="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/bg_splash</item>
+        <item name="windowSplashScreenAnimationDuration">5</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>
 </resources>
