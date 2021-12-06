@@ -40,6 +40,8 @@ android {
 
 // val kotlin_version:String by rootProject.ext
 dependencies {
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    val nav_version = "2.3.5"
 
     implementation(fileTree(mapOf("dir" to "libs","include" to listOf("*.jar"))))
     implementation ("androidx.core:core-ktx:1.3.2")
@@ -51,4 +53,6 @@ dependencies {
     androidTestImplementation ("androidx.test.ext:junit:1.1.2")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
     implementation ("androidx.core:core-splashscreen:1.0.0-alpha01")
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 }
