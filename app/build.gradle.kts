@@ -34,13 +34,12 @@ android {
     }
 
     buildFeatures{
-        viewBinding =true
+        dataBinding =true
     }
 }
 
 // val kotlin_version:String by rootProject.ext
 dependencies {
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     val nav_version = "2.3.5"
 
     implementation(fileTree(mapOf("dir" to "libs","include" to listOf("*.jar"))))
@@ -55,4 +54,9 @@ dependencies {
     implementation ("androidx.core:core-splashscreen:1.0.0-alpha01")
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("androidx.fragment:fragment-ktx:1.3.2")
 }

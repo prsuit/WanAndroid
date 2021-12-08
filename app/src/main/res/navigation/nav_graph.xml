@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.pursuit.wanandroid.fragment.HomeFragment"
+        android:name="com.pursuit.wanandroid.ui.main.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
 
@@ -20,5 +20,21 @@
 
     <fragment
         android:id="@+id/webFragment"
-        android:name="com.pursuit.wanandroid.fragment.WebFragment" />
+        android:name="com.pursuit.wanandroid.ui.common.WebFragment" />
+    <fragment
+        android:id="@+id/discoveryFragment"
+        android:name="com.pursuit.wanandroid.ui.main.discovery.DiscoveryFragment"
+        android:label="DiscoveryFragment" />
+    <fragment
+        android:id="@+id/systemFragment"
+        android:name="com.pursuit.wanandroid.ui.main.system.SystemFragment"
+        android:label="SystemFragment" />
+    <fragment
+        android:id="@+id/navigationFragment"
+        android:name="com.pursuit.wanandroid.ui.main.navigation.NavigationFragment"
+        android:label="NavigationFragment" />
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.pursuit.wanandroid.ui.main.mine.MineFragment"
+        android:label="MeFragment" />
 </navigation>

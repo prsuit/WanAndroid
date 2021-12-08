@@ -1,4 +1,4 @@
-package com.pursuit.wanandroid.fragment
+package com.pursuit.wanandroid.ui.common
 
 import androidx.fragment.app.Fragment
 
@@ -7,6 +7,5 @@ import androidx.fragment.app.Fragment
  * @Author:      sh
  * @Date:        2021/12/6
  */
-class NavigationFragment :Fragment(){
-
+class WebFragment :Fragment(){
 }
