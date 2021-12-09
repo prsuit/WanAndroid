@@ -13,14 +13,6 @@
 
     </fragment>
 
-
-    <action
-        android:id="@+id/action_webFragment"
-        app:destination="@id/webFragment" />
-
-    <fragment
-        android:id="@+id/webFragment"
-        android:name="com.pursuit.wanandroid.ui.common.WebFragment" />
     <fragment
         android:id="@+id/discoveryFragment"
         android:name="com.pursuit.wanandroid.ui.main.discovery.DiscoveryFragment"
@@ -37,4 +29,18 @@
         android:id="@+id/mineFragment"
         android:name="com.pursuit.wanandroid.ui.main.mine.MineFragment"
         android:label="MeFragment" />
+
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.pursuit.wanandroid.common.WebFragment" />
+    <action
+        android:id="@+id/action_webFragment"
+        app:destination="@id/webFragment" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.pursuit.wanandroid.ui.login.LoginFragment" />
+    <action
+        app:destination="@id/loginFragment"
+        android:id="@+id/action_loginFragment" />
 </navigation>

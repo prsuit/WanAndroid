@@ -1,4 +1,4 @@
-package com.pursuit.wanandroid.ui.common
+package com.pursuit.wanandroid.common
 
 import androidx.fragment.app.Fragment
 

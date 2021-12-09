@@ -10,12 +10,14 @@ import com.pursuit.wanandroid.base.BaseViewModel
  * @Author:      sh
  * @Date:        2021/12/8
  */
-abstract class BaseDbVmActivity<DB : ViewDataBinding, VM : BaseViewModel> : BaseVmActivity<VM>() {
+abstract class BaseDbVmActivity<VM : BaseViewModel,DB : ViewDataBinding,> : BaseVmActivity<VM>() {
     lateinit var mBinding: DB
     override fun onCreate(savedInstanceState: Bundle?) {
         setUseBinding(true)
         super.onCreate(savedInstanceState)
     }
+
+
 
     override fun initBinding() {
         mBinding = DataBindingUtil.setContentView(this, layoutId())

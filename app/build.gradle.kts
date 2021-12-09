@@ -1,6 +1,7 @@
 plugins {
     id ("com.android.application")
-    id ("kotlin-android")
+    id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -59,4 +60,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     implementation("androidx.fragment:fragment-ktx:1.3.2")
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

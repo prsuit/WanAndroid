@@ -11,10 +11,34 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.home.popular.PopularFragment">
 
-        <TextView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello" />
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Hello" />
+            <TextView
+                android:id="@+id/tv2"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:text="Hello" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
 
     </FrameLayout>
 </layout>

@@ -1,22 +1,17 @@
 package com.pursuit.wanandroid.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pursuit.wanandroid.R
-import com.pursuit.wanandroid.base.activity.BaseActivity
 import com.pursuit.wanandroid.base.activity.BaseDbVmActivity
 import com.pursuit.wanandroid.databinding.ActivityMainBinding
 import com.pursuit.wanandroid.ui.main.home.HomeViewModel
-import com.pursuit.wanandroid.ui.main.home.popular.PopularViewModel
 
-class MainActivity : BaseDbVmActivity<ActivityMainBinding,HomeViewModel>() {
+class MainActivity : BaseDbVmActivity<HomeViewModel,ActivityMainBinding>() {
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
@@ -41,7 +36,7 @@ class MainActivity : BaseDbVmActivity<ActivityMainBinding,HomeViewModel>() {
 //
 //    }
 
-    override fun initView(savedInstanceState: Bundle?) {
+    override fun init(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         val appBarConfiguration = AppBarConfiguration(navView.menu)
@@ -51,9 +46,7 @@ class MainActivity : BaseDbVmActivity<ActivityMainBinding,HomeViewModel>() {
         mBinding.bottomNavigationView.setupWithNavController(navController)
     }
 
-    override fun layoutId(): Int {
-        return R.layout.activity_main
-    }
+    override fun layoutId()=R.layout.activity_main
 
     override fun onPause() {
         super.onPause()
@@ -77,7 +70,6 @@ class MainActivity : BaseDbVmActivity<ActivityMainBinding,HomeViewModel>() {
     }
 
     override fun createObserver() {
-        TODO("Not yet implemented")
     }
 
 

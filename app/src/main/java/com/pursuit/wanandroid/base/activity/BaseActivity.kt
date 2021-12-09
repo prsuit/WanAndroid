@@ -20,10 +20,15 @@ abstract class BaseActivity : AppCompatActivity() {
         } else{
             setContentView(layoutId())
         }
-
+        performInit()
+        init(savedInstanceState)
     }
 
+    abstract fun performInit()
+
     abstract fun layoutId() :Int
+
+    abstract fun init(savedInstanceState: Bundle?)
 
     open fun initBinding() {
 

@@ -9,9 +9,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.pursuit.wanandroid.R
+import com.pursuit.wanandroid.base.fragment.BaseDbVmFragment
 import com.pursuit.wanandroid.base.fragment.BaseFragment
 import com.pursuit.wanandroid.databinding.FragmentHomeBinding
+import com.pursuit.wanandroid.ui.main.MainActivity
+import com.pursuit.wanandroid.ui.main.home.popular.PopularFragment
 import com.pursuit.wanandroid.ui.main.home.popular.PopularViewModel
 
 /**
@@ -19,70 +27,50 @@ import com.pursuit.wanandroid.ui.main.home.popular.PopularViewModel
  * @Author:      sh
  * @Date:        2021/12/6
  */
-class HomeFragment :BaseFragment<FragmentHomeBinding,PopularViewModel>(){
-//    private val viewModel: HomeViewModel by viewModels()
-
-
-    override fun onStart() {
-        super.onStart()
-        println("onStart")
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-      //  viewModel = ViewModelProvider(this).get(PopularViewModel::class.java)
-//        mViewModel.num.observe(viewLifecycleOwner,Observer{
-//            txtTv?.apply {
-//                text = it.toString()
-//            }
-//        })
-
-//        txtTv?.setOnClickListener {  mViewModel.modifyNum(1) }
-
-        println("onActivityCreated")
-//        println(viewModel.num.value.toString())
-    }
-
-    override fun onResume() {
-        super.onResume()
-        println("onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        println("onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        println("onStop")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        println("onDestroyView")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        println("onDestroy")
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        println("onDetach")
-    }
+class HomeFragment : BaseDbVmFragment<HomeViewModel, FragmentHomeBinding>() {
+//        private val viewModel: HomeViewModel by viewModels()
+    private var fragments: ArrayList<Fragment> = arrayListOf()
+    private var titles: ArrayList<String> = arrayListOf()
+    lateinit var pagerAdapter: FragmentStateAdapter
+    private var currentOffset = 0
 
     override fun layoutId() = R.layout.fragment_home
 
-    override fun initView(view: View, savedInstanceState: Bundle?) {
+    override fun init(view: View, savedInstanceState: Bundle?) {
+//        mBinding.data=mViewModel
+        titles = arrayListOf(
+            getString(R.string.popular_articles),
+            getString(R.string.latest_project),
+            getString(R.string.plaza),
+            getString(R.string.project_category)
+        )
+        fragments.add(PopularFragment.newInstance(0,titles[0]))
+        fragments.add(PopularFragment.newInstance(1,titles[1]))
+        fragments.add(PopularFragment.newInstance(2,titles[2]))
+        fragments.add(PopularFragment.newInstance(3,titles[3]))
+        pagerAdapter = MyPagerAdapter(this, fragments)
+        mBinding.viewPager.adapter = pagerAdapter
 
-        mBinding.data=viewModel
+        TabLayoutMediator(mBinding.tabLayout, mBinding.viewPager) { tab, position ->
+            tab.text = titles[position]
+            mBinding.viewPager.currentItem = tab.position
+        }.attach()
+
+        mBinding.appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener {
+                _, offset ->
+            println("--offset-->$offset")
+            if (mActivity is MainActivity && this.currentOffset!=offset){
+
+            }
+        })
     }
 
+    override fun lazyLoadData() {
+    }
+
+
     override fun createObserver() {
-//        viewModel.num.observe(viewLifecycleOwner,{
+//        mViewModel.num.observe(viewLifecycleOwner,{
 //            println(it)
 //        })
     }

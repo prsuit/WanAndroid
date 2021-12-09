@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.pursuit.wanandroid.base.BaseViewModel
+import com.pursuit.wanandroid.base.fragment.BaseVmFragment
 
 /**
  * @Description:
  * @Author:      sh
  * @Date:        2021/12/8
  */
-abstract class BaseDbVmFragment<DB : ViewDataBinding, VM : BaseViewModel> : BaseVmFragment<VM>() {
+abstract class BaseDbVmFragment<VM : BaseViewModel,DB : ViewDataBinding> : BaseVmFragment<VM>() {
     lateinit var mBinding: DB
 
     override fun onCreateView(
